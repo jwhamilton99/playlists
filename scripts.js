@@ -3,7 +3,7 @@ function addplaylist(obj, num) {
 	var appleLink = obj["applemusic"];
 	var spotifyLink = obj["spotify"];
 	
-	var container = document.getElementById("c"+((num%3)+1));
+	var container = document.getElementById("playlistContainer");
 	var playlistContainer = document.createElement("div");
 	playlistContainer.className = "playlist";
 	
@@ -40,7 +40,7 @@ function addplaylist(obj, num) {
 
 function getJSON() {
 	var r = new XMLHttpRequest();
-	r.open("GET","/playlists/data.json",true);
+	r.open("GET","data.json",true);
 	r.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var res = JSON.parse(this.response);
@@ -52,8 +52,8 @@ function getJSON() {
 			
 			var b = document.createElement("p");
 			b.className = "content";
-			b.innerHTML = "<a id=\"backButton\" href=\"/music\">(Back)</a>";
-			document.getElementById("c1").appendChild(b);
+			b.innerHTML = "<a id=\"backButton\" href=\"/\">(Back)</a>";
+			document.getElementById("container").appendChild(b);
 		}
 	}
 	r.send();
