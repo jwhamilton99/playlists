@@ -49,16 +49,7 @@ function getJSON() {
 				addplaylist(res[key],i);
 				i++;
 			}
-			
-			var b = document.createElement("p");
-			b.className = "content";
-			b.innerHTML = "<a id=\"backButton\" href=\"/\">(Back)</a>";
-			document.getElementById("container").appendChild(b);
 		}
 	}
 	r.send();
-}
-
-window.onload = function() {
-	getJSON();
 }
